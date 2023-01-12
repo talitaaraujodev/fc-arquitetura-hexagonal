@@ -24,8 +24,6 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.10",
     "@types/pg": "^8.6.6",
-    "@types/resolve": "^1.20.2",
-    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
@@ -40,21 +38,16 @@
     "supertest": "^6.3.3",
     "ts-jest": "^27.0.3",
     "ts-node": "10.9.1",
-    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "path": "^0.12.7",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
-    "resolve": "^1.22.1",
     "tsyringe": "^4.7.0",
-    "typeorm": "0.3.11",
-    "util": "^0.12.5",
-    "uuid": "^9.0.0"
+    "typeorm": "0.3.11"
   }
 }

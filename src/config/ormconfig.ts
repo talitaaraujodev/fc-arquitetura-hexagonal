@@ -1,15 +1,16 @@
 import 'reflect-metadata';
 import { ProductEntity } from './../adapter/output/persistense/entities/ProductEntity';
 import { DataSource, DataSourceOptions } from 'typeorm';
+import env from './env';
 
 function getConfig() {
   return {
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: '123456',
-    database: 'test',
+    type: env.type,
+    host: env.host,
+    port: env.dbPort,
+    username: env.username,
+    password: env.password,
+    database: env.database,
     synchronize: false,
     logging: true,
     entities: [ProductEntity],
