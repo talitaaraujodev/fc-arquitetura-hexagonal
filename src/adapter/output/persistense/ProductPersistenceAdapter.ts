@@ -4,7 +4,7 @@ import { Product } from '../../../domain/models/Product';
 import AppDataSource from '../../../config/ormconfig';
 
 export class ProductPersistenceAdapter implements ProductPersistence {
-  private repository = AppDataSource.getRepository(ProductEntity);
+  private readonly repository = AppDataSource.getRepository(ProductEntity);
 
   async findOne(id: number): Promise<Product | null> {
     const product = await this.repository.findOneBy({ id });
@@ -25,7 +25,6 @@ export class ProductPersistenceAdapter implements ProductPersistence {
 
   async update(product: Product): Promise<Product | null> {
     await this.findOne(product.id);
-
     const productEntityUpdate = await this.repository.save(
       new ProductEntity(null, product.name, product.price, product.status)
     );

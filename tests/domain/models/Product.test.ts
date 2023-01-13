@@ -1,4 +1,4 @@
-import { Product } from '../src/domain/models/Product';
+import { Product } from '../../../src/domain/models/Product';
 describe('Product tests', () => {
   test('enable_whenPriceEqualZero_returnError', () => {
     const product = new Product(1, 'Product test', 0, 1);

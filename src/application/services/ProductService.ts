@@ -4,12 +4,13 @@ import { ProductServiceInputPort } from '../ports/input/ProductServiceInputPort'
 import { Product } from '../../domain/models/Product';
 import { inject, injectable } from 'tsyringe';
 import { ValidationError } from '../../util/errors/ValidationError';
+import { ProductPersistence } from '../ports/output/ProductPersistenceOutputPort';
 
 @injectable()
 export class ProductService implements ProductServiceInputPort {
   constructor(
     @inject(InjectionTokens.PRODUCT_PERSISTENCE_OUTPUT_PORT)
-    private readonly productRepository: ProductPersistenceAdapter
+    private readonly productRepository: ProductPersistence
   ) {}
 
   async findOne(id: number): Promise<Product> {

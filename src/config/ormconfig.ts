@@ -18,6 +18,5 @@ function getConfig() {
   } as DataSourceOptions;
 }
 const AppDataSource = new DataSource(getConfig());
-AppDataSource.initialize();
 
 export default AppDataSource;

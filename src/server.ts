@@ -1,11 +1,15 @@
 import 'reflect-metadata';
+import AppDataSource from './config/ormconfig';
 import { container } from 'tsyringe';
-import { InjectionTokens } from './util/types/InjectionTokens';
 import app from './App';
+import env from './config/env';
+import { InjectionTokens } from './util/types/InjectionTokens';
 import { Request, Response, Router } from 'express';
 import { ProductController } from './adapter/input/controllers/ProductController';
 import { ProductService } from './application/services/ProductService';
 import { ProductPersistenceAdapter } from './adapter/output/persistense/ProductPersistenceAdapter';
+
+AppDataSource.initialize();
 
 container.register(InjectionTokens.PRODUCT_PERSISTENCE_OUTPUT_PORT, {
   useClass: ProductPersistenceAdapter,
@@ -28,4 +32,4 @@ productsRoutes.post(
   }
 );
 
-app.listen(3000, productsRoutes);
+app.listen(env.serverPort, productsRoutes);

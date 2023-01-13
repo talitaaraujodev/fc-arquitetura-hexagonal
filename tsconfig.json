@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      },
+      { "name": "typescript-tslint-plugin" }
+    ],
+    "target": "ES2020",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
@@ -8,6 +15,6 @@
     "outDir": "./build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
+    "sourceMap": true
   }
 }
