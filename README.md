@@ -6,4 +6,4 @@ Também chamada de Ports and Adapters, a arquitetura hexagonal é uma forma de 
     <img alt="Documentação" src="https://engsoftmoderna.info/artigos/figs/hex-ports-adapters.svg"/>
 </p>
 
-### By Talita Araujo :purple_heart:
+#### By Talita Araujo :purple_heart:
