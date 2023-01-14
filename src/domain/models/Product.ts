@@ -21,6 +21,10 @@ export class Product {
     return new Product(null, name, price, ProductStatus.DISABLED);
   }
 
+  static updateToSaved(id: number, name: string, price: number): Product {
+    return new Product(id, name, price, ProductStatus.DISABLED);
+  }
+
   async isValid(): Promise<Boolean> {
     if (
       this.status !== ProductStatus.ENABLED &&

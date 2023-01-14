@@ -3,7 +3,7 @@ import { createMock } from 'ts-auto-mock';
 import { ProductPersistence } from '../../../src/application/ports/output/ProductPersistenceOutputPort';
 import { ValidationError } from '../../../src/util/errors/ValidationError';
 
-describe('Product Service tests', () => {
+describe('ProductService tests', () => {
   const mockProductPersistenceAdapter = createMock<ProductPersistence>();
   const productService = new ProductService(mockProductPersistenceAdapter);
 

@@ -1,22 +1,17 @@
-import 'reflect-metadata';
+import path from 'path';
+import { DataSource } from 'typeorm';
 import { ProductEntity } from './../adapter/output/persistense/entities/ProductEntity';
-import { DataSource, DataSourceOptions } from 'typeorm';
 import env from './env';
 
-function getConfig() {
-  return {
-    type: env.type,
-    host: env.host,
-    port: env.dbPort,
-    username: env.username,
-    password: env.password,
-    database: env.database,
-    synchronize: false,
-    logging: true,
-    entities: [ProductEntity],
-    migrations: [__dirname + '/database/migrations/*.ts'],
-  } as DataSourceOptions;
-}
-const AppDataSource = new DataSource(getConfig());
-
-export default AppDataSource;
+export const AppDataSource = new DataSource({
+  type: 'postgres',
+  host: env.host,
+  port: env.dbPort,
+  username: env.username,
+  password: env.password,
+  database: env.database,
+  synchronize: true,
+  logging: true,
+  entities: [ProductEntity],
+  migrations: [path.join(__dirname, '/database/migrations/*.ts')],
+});

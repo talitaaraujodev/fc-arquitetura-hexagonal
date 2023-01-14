@@ -26,6 +26,20 @@ export class ProductController {
     }
   }
 
+  async update(request: Request, response: Response): Promise<Response> {
+    try {
+      const id = parseInt(request.params.id);
+      const product = await this.productServiceInputPort.update(
+        id,
+        request.body.name,
+        request.body.price
+      );
+      return response.json(product).status(200);
+    } catch (e) {
+      return response.json(e).status(500);
+    }
+  }
+
   async findOne(request: Request, response: Response): Promise<Response> {
     try {
       const id = parseInt(request.params.id);

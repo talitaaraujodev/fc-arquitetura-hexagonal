@@ -1,7 +1,7 @@
 {
   "name": "fc-arquitetura-hexagonal",
   "version": "1.0.0",
-  "description": "",
+  "description": "Api de estudo utilizando exemplo do conceito de arquitetura hexagonal com typescript",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -15,7 +15,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Talita Araujo",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.13",
@@ -47,9 +47,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "path": "^0.12.7",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.1.4",
     "tsyringe": "^4.7.0",
     "typeorm": "0.3.11"
   }

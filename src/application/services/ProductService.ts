@@ -1,5 +1,4 @@
 import { InjectionTokens } from '../../util/types/InjectionTokens';
-import { ProductPersistenceAdapter } from '../../adapter/output/persistense/ProductPersistenceAdapter';
 import { ProductServiceInputPort } from '../ports/input/ProductServiceInputPort';
 import { Product } from '../../domain/models/Product';
 import { inject, injectable } from 'tsyringe';
@@ -26,6 +25,16 @@ export class ProductService implements ProductServiceInputPort {
       throw new ValidationError('Produto inválido');
     }
     return this.productRepository.create(product);
+  }
+
+  async update(id: number, name: string, price: number): Promise<Product> {
+    const product = Product.updateToSaved(id, name, price);
+
+    const isValid = await product.isValid();
+    if (!isValid) {
+      throw new ValidationError('Produto inválido');
+    }
+    return this.productRepository.update(product);
   }
 
   enable(product: Product): Promise<Product> {
