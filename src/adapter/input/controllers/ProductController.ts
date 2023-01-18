@@ -36,6 +36,18 @@ export class ProductController {
       );
       return response.json(product).status(200);
     } catch (e) {
+      if (e instanceof ValidationError) {
+        return response.status(e.httpCode).json({ message: e.message });
+      }
+      return response.json(e).status(500);
+    }
+  }
+
+  async findAll(request: Request, response: Response): Promise<Response> {
+    try {
+      const products = await this.productServiceInputPort.findAll();
+      return response.json(products).status(200);
+    } catch (e) {
       return response.json(e).status(500);
     }
   }

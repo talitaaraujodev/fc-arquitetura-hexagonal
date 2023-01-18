@@ -6,8 +6,12 @@ import { AppDataSource } from '../../../config/ormconfig';
 export class ProductPersistenceAdapter implements ProductPersistence {
   private readonly repository = AppDataSource.getRepository(ProductEntity);
 
+  async findAll(): Promise<Product[] | null> {
+    return Object.assign(this.repository.find()) as Product[];
+  }
+
   async findOne(id: number): Promise<Product | null> {
-    const product = await this.repository.findOneBy({ id });
+    const product: ProductEntity = await this.repository.findOneBy({ id });
     return new Product(product.id, product.name, product.price, product.status);
   }
 

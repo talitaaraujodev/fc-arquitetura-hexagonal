@@ -12,6 +12,10 @@ export class ProductService implements ProductServiceInputPort {
     private readonly productRepository: ProductPersistence
   ) {}
 
+  async findAll(): Promise<Product[]> {
+    return await this.productRepository.findAll();
+  }
+
   async findOne(id: number): Promise<Product> {
     return await this.productRepository.findOne(id);
   }

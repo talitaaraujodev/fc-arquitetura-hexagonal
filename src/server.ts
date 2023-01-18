@@ -34,7 +34,12 @@ productsRoutes.post(
     return await productController.create(request, response);
   }
 );
-
+productsRoutes.get(
+  '/products',
+  async (request: Request, response: Response) => {
+    return await productController.findAll(request, response);
+  }
+);
 productsRoutes.get(
   '/products/:id',
   async (request: Request, response: Response) => {
