@@ -13,8 +13,11 @@
     "skipLibCheck": true,
     "module": "commonjs",
     "outDir": "./build",
+    "rootDir": "./src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true
-  }
+  },
+  "exclude": ["./tests"],
+  "include": ["./src"]
 }
